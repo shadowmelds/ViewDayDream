@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.util.Size
 import android.view.Menu
 import android.view.MenuItem
@@ -12,36 +13,10 @@ import android.view.ViewTreeObserver
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.Dimension
 import androidx.fragment.app.*
 import androidx.preference.PreferenceManager.getDefaultSharedPreferences
-import coil.compose.rememberImagePainter
-import com.bumptech.glide.Glide
-import com.google.accompanist.glide.rememberGlidePainter
 import com.google.android.material.composethemeadapter.MdcTheme
-import com.google.android.material.snackbar.Snackbar
 import dev.shadowmeld.viewdaydream.R
 import dev.shadowmeld.viewdaydream.databinding.ActivityMainBinding
 import dev.shadowmeld.viewdaydream.media.PlayList
@@ -51,10 +26,9 @@ import dev.shadowmeld.viewdaydream.ui.main.home.HomeFragment
 import dev.shadowmeld.viewdaydream.ui.main.library_music.LibraryMusicFragment
 import dev.shadowmeld.viewdaydream.ui.main.local_home.LocalHomeFragment
 import dev.shadowmeld.viewdaydream.ui.main.local_home.LocalMusicInfo
-import dev.shadowmeld.viewdaydream.ui.player.PlayerActivity
+import dev.shadowmeld.viewdaydream.ui.now_player.ParentPlayer
 import dev.shadowmeld.viewdaydream.ui.settings.SettingsActivity
 import dev.shadowmeld.viewdaydream.util.logger
-import java.io.FileNotFoundException
 
 
 enum class DaydreamMode {
@@ -70,7 +44,7 @@ enum class ScreenFragments {
 }
 
 @ExperimentalMaterialApi
-class MainActivity : AppCompatActivity(), PlayListListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -97,6 +71,7 @@ class MainActivity : AppCompatActivity(), PlayListListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("ShadowmeldMainViewModel", "Activity1:${viewModel.hashCode()}")
 
         viewModel.loadData(getDefaultSharedPreferences(this))
 
@@ -130,18 +105,18 @@ class MainActivity : AppCompatActivity(), PlayListListener {
 
         initComposeView()
         initData()
-        PlayList.addUpdateListener(
-            this
-        )
+
+        PlayList.get().addUpdateListener(object : PlayListListener {
+            override fun onCurrentPlayUpdate(currentPlayMusic: LocalMusicInfo) {
+
+                Log.d("ShadowmeldMainViewModel", "MainActivity:${viewModel.hashCode()}")
+                viewModel.currentMusic?.invoke(currentPlayMusic)
+            }
+        },)
     }
 
     private fun initData() {
         viewModel.getDayDreamMode()
-    }
-
-    private var updateCurrentMusic: ((musicData: LocalMusicInfo) -> Unit)? = null
-    override fun onCurrentPlayUpdate(currentPlayMusic: LocalMusicInfo) {
-        updateCurrentMusic?.invoke(currentPlayMusic)
     }
 
     private fun setDaydreamMode(currentDaydreamMode: DaydreamMode) {
@@ -294,121 +269,8 @@ class MainActivity : AppCompatActivity(), PlayListListener {
 
         binding.currentPlay.setContent {
             MdcTheme {
-                NowPlayer()
+                ParentPlayer(viewModel = viewModel)
             }
         }
-    }
-
-    @Composable
-    private fun NowPlayer(
-        viewModel: MainViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-    ) {
-
-        val musicData = remember {
-            mutableStateOf<LocalMusicInfo?>(null)
-        }
-        updateCurrentMusic = {
-            musicData.value = it
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-        ) {
-
-            Card(
-                onClick = {
-
-                },
-                modifier = Modifier
-                    .width(200.dp)
-                    .align(alignment = Alignment.BottomEnd)
-                    .padding(0.dp, 0.dp, 16.dp, 72.dp),
-                backgroundColor = colorResource(id = R.color.color_primary)
-            ) {
-                ConstraintLayout(
-                    modifier = Modifier
-                        .align(alignment = Alignment.BottomEnd)
-                ) {
-
-                    val context = LocalContext.current
-                    var thumbnail: Bitmap? = null
-                    musicData.value?.uri?.let {
-                        try {
-
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                                thumbnail = context.contentResolver.loadThumbnail(
-                                    it, Size(640, 480), null)
-                            }
-
-                        } catch (e: FileNotFoundException) {
-                            e.printStackTrace()
-                        }
-                    }
-
-
-                    val (musicCover, musicInfo, musicDuration) = createRefs()
-                    Image(
-                        painter = rememberGlidePainter(thumbnail?: R.mipmap.ic_launcher),
-                        contentDescription = "Contact profile picture",
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .size(40.dp)
-                            .clip(RoundedCornerShape(8.dp))
-                            .constrainAs(musicCover) {
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                                start.linkTo(parent.start)
-                            }
-                    )
-
-                    Column(
-                        modifier = Modifier
-                            .constrainAs(musicInfo) {
-                                top.linkTo(parent.top)
-                                bottom.linkTo(parent.bottom)
-                                start.linkTo(musicCover.end)
-                                end.linkTo(musicDuration.start)
-                                width = Dimension.fillToConstraints
-                            }
-                    ) {
-                        Text(
-                            text = musicData.value?.musicName ?: "Music Name",
-                            fontSize = 12.sp
-                        )
-                    }
-
-                    Text(
-                        text = "${musicData.value?.musicDuration ?: "0"}",
-                        style = MaterialTheme.typography.body2,
-                        fontSize = 10.sp,
-                        modifier = Modifier
-                            .padding(start = 16.dp, end = 16.dp)
-                            .constrainAs(musicDuration) {
-                                bottom.linkTo(musicInfo.bottom)
-                                end.linkTo(parent.end)
-                            }
-                    )
-                }
-            }
-        }
-    }
-
-    @Preview
-    @Composable
-    private fun PreviewNowPlayer() {
-        NowPlayer()
-    }
-
-    @Composable
-    private fun NowPlayerScreen() {
-
-    }
-
-    @Preview
-    @Composable
-    private fun PreviewGreeting() {
-        NowPlayerScreen()
     }
 }

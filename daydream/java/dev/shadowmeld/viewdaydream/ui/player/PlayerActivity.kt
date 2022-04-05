@@ -54,7 +54,7 @@ class PlayerActivity : AppCompatActivity() {
                     )
                 } catch (e: RemoteException) {
                     Log.e(
-                        MainActivity::class.java.simpleName,
+                        PlayerActivity::class.java.simpleName,
                         "Error creating controller", e
                     )
                 }

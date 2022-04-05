@@ -82,7 +82,7 @@
         android:id="@+id/current_play"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:elevation="6dp" >
+        android:elevation="10dp" >
 
     </androidx.compose.ui.platform.ComposeView>
 

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.activity.viewModels
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -17,6 +18,7 @@ import dev.shadowmeld.viewdaydream.ui.onboarding.OnboardingActivity
 import dev.shadowmeld.viewdaydream.util.logger
 import kotlinx.coroutines.*
 
+@ExperimentalMaterialApi
 class LauncherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLauncherBinding

@@ -12,11 +12,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import dev.shadowmeld.viewdaydream.databinding.FragmentLocalHomeBinding
 import dev.shadowmeld.viewdaydream.util.logger
 import java.util.concurrent.TimeUnit
 import android.provider.MediaStore.Audio.AudioColumns;
+import android.util.Log
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
+import dev.shadowmeld.viewdaydream.databinding.FragmentLocalHomeBinding
 import dev.shadowmeld.viewdaydream.media.PlayList
+import dev.shadowmeld.viewdaydream.ui.main.MainViewModel
 
 class LocalHomeFragment : Fragment() {
 
@@ -25,6 +29,8 @@ class LocalHomeFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentLocalHomeBinding
+
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +45,10 @@ class LocalHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("ShadowmeldMainViewModel", "Fragment1:${viewModel.hashCode()}")
         val localMusicAdapter = LocalMusicAdapter {
-            PlayList.setCurrentPlayMusic(it)
+            PlayList.get().setCurrentPlayMusic(it)
+            Log.d("ShadowmeldMainViewModel", "Fragment:${viewModel.hashCode()}")
         }
 
         binding.localMusicList.apply {

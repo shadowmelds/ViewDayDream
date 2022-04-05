@@ -1,8 +1,21 @@
 package dev.shadowmeld.viewdaydream.media
 
+import dev.shadowmeld.viewdaydream.ui.main.MainViewModel
 import dev.shadowmeld.viewdaydream.ui.main.local_home.LocalMusicInfo
 
-object PlayList {
+
+class PlayList {
+
+    companion object{
+
+        private var instance: PlayList? = null
+
+        @Synchronized
+        fun get(): PlayList{
+            if(null == instance) instance = PlayList()
+            return instance as PlayList
+        }
+    }
 
     private var playListListener: PlayListListener? = null
 
