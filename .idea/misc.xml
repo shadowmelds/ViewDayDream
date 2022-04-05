@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/app/java/dev/shadowmeld/viewdaydream/res/drawable/ic_launcher_background.xml" value="0.396" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable-v23/preview_window.xml" value="0.113" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/corners_button.xml" value="0.261" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_baseline_more_vert.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_default_profile_avatar.xml" value="0.1145" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_launcher_background.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_outline_library_add.xml" value="0.261" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_outline_library_music.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_outline_search.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_outline_shuffle.xml" value="0.261" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_round_play_arrow.xml" value="0.1545" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/ic_twotone_library_music.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/nav_explore.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/nav_home.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/nav_library_music.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/navigation_item_background.xml" value="0.113" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/onboarding_grass.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/preview_window.xml" value="0.113" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/radius_selectable.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/round_play_background.xml" value="0.1545" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/tab_indicator.xml" value="0.113" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/twotone_corners_button.xml" value="0.261" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/view_preview.xml" value="0.1725" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/drawable/viwe_preview.xml" value="0.149" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/font-v26/google_sans.xml" value="0.20925925925925926" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/layout/fragment_library_music.xml" value="0.2916666666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/layout/home_fragment.xml" value="0.15555555555555556" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/layout/item_base_music.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/layout/item_base_music_list.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/menu/main_navigation.xml" value="0.21585903083700442" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/menu/menu_main.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.194" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.194" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/xml/network_security_config.xml" value="0.18439716312056736" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/res/xml/root_preferences.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/launcher/res/layout/activity_launcher.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/explore/res/layout/home_fragment.xml" value="0.15" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/home/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/home/res/layout/item_personalized_music_list.xml" value="0.2857142857142857" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/library_music/res/layout/fragment_library_music.xml" value="0.15" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/local_home/res/layout/fragment_local_home.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/drawable/ic_default_profile_avatar.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/drawable/ic_outline_explore.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/drawable/ic_outline_home.xml" value="0.1125" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/layout/activity_main.xml" value="0.18857142857142858" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/layout/content_main.xml" value="0.21403242147923" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/menu/main_navigation.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/menu/main_navigation_local.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/menu/main_navigation_online.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/main/res/menu/menu_main.xml" value="0.18489583333333334" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/onboarding/res/layout/activity_onboarding.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/playlist/res/layout/activity_play_list.xml" value="0.24003707136237257" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/playlist/res/layout/content_play_list.xml" value="0.21403242147923" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/playlist/res/layout/item_detail_music_list.xml" value="0.29438405797101447" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/playlist/res/layout/item_music_list.xml" value="0.21225937183383992" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/playlist/res/menu/menu_play_list.xml" value="0.4401041666666667" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/settings/res/layout/settings_activity.xml" value="0.3473731884057971" />
+        <entry key="..\:/Skills/Android/ShadowmeldProjects/Active/ViewDayDream/daydream/java/dev/shadowmeld/viewdaydream/ui/settings/res/xml/root_preferences.xml" value="0.4401041666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

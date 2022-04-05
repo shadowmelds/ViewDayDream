@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="160dp"
+        android:layout_height="160dp">
+
+        <dev.shadowmeld.viewdaydream.ui.components.RoundImageView
+            android:id="@+id/cover"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            tools:src="@drawable/onboarding_grass"/>
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:padding="4dp"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/margin_normal"
+            android:src="@drawable/ic_round_play_arrow"
+            android:background="@drawable/round_play_background"
+            android:contentDescription="TODO"
+            app:tint="@color/white" />
+
+    </FrameLayout>
+
+    <TextView
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:id="@+id/music_name"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:singleLine="false"/>
+
+</LinearLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_normal">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04136253" />
+
+        <dev.shadowmeld.viewdaydream.ui.components.RoundImageView
+            android:id="@+id/play_list_cover"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/margin_normal"
+            android:paddingEnd="@dimen/margin_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/play_list_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/play_list_cover"
+            app:layout_constraintTop_toTopOf="@+id/play_list_cover">
+
+            <TextView
+                android:id="@+id/play_list_name"
+                style="@style/TextAppearance.IOSched.H2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:singleLine="false"
+                tools:text="音乐列表" />
+
+            <TextView
+                android:id="@+id/play_list_creator"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:singleLine="false"
+                tools:text="音乐列表 · Shadowmeld" />
+
+            <TextView
+                android:id="@+id/play_list_info"
+                style="@style/Widget.IOSched.MultilineBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:singleLine="false"
+                tools:text="最后更新于 2021年02月21日 · 825 首歌" />
+
+            <TextView
+                android:id="@+id/play_list_description"
+                style="@style/Widget.IOSched.MultilineBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:singleLine="false"
+                android:textSize="14sp"
+                tools:text="收录八百位国产原创音乐人乐队，一人一曲。 做这个歌单最初只是想探索一下在纯音制作方面如今的创作者到底有多少" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/too"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_normal"
+        android:paddingBottom="@dimen/margin_normal"
+        android:orientation="horizontal"
+        android:gravity="end"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:id="@+id/icons_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="@dimen/margin_normal"
+            android:paddingEnd="24dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/twotone_corners_button"
+            android:foreground="@drawable/radius_selectable"
+            android:gravity="center_vertical"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:id="@+id/icons_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_outline_library_add"
+                app:tint="@color/color_primary" />
+
+            <TextView
+                android:id="@+id/icon_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:textSize="14sp"
+                android:text="添加到媒体库"
+                tools:text="添加到媒体库"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/new_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="@dimen/margin_normal"
+            android:paddingEnd="24dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/corners_button"
+            android:foreground="@drawable/radius_selectable"
+            android:gravity="center_vertical"
+            tools:ignore="UnusedAttribute">
+
+            <ImageView
+                android:id="@+id/new_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_outline_shuffle"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/new_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="随机播放"
+                tools:text="随机播放" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
