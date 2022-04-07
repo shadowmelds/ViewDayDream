@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -202,7 +203,8 @@ private fun NowPlayerScreen(
                 .fillMaxHeight()
                 .background(
                     Color.White
-                )
+                ),
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
 
             Card(
@@ -229,7 +231,7 @@ private fun NowPlayerScreen(
                     .padding(36.dp, 8.dp, 36.dp, 8.dp)
             ) {
 
-                val (favorite, musicInfo) = createRefs()
+                val (favorite, musicInfo, libraryAdd) = createRefs()
 
                 Column(
                     modifier = Modifier
@@ -253,9 +255,17 @@ private fun NowPlayerScreen(
                     modifier = Modifier
                         .constrainAs(favorite) {
                             end.linkTo(parent.end)
-                            width = Dimension.fillToConstraints
                         }) {
                     Icon(Icons.Rounded.FavoriteBorder, contentDescription = "喜欢")
+                }
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(libraryAdd) {
+                            end.linkTo(favorite.start)
+                        }) {
+                    Icon(painterResource(id = R.drawable.ic_outline_library_add), contentDescription = "喜欢")
                 }
 
             } // 音乐信息
@@ -284,6 +294,7 @@ private fun NowPlayerScreen(
                 modifier = Modifier
                     .height(46.dp)
                     .fillMaxWidth()
+                    .padding(36.dp, 8.dp, 36.dp, 8.dp)
             ) {
 
                 val (play, next, previous, shuffle, repeat) = createRefs()
@@ -337,7 +348,64 @@ private fun NowPlayerScreen(
                         }) {
                     Icon(painterResource(R.drawable.ic_round_shuffle), contentDescription = "喜欢")
                 }
+
+                createHorizontalChain(repeat, previous, play, next, shuffle, chainStyle = ChainStyle.SpreadInside)
             } // 播放控制
+
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .weight(1f, false),
+            ) {
+
+                Divider(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(1.dp),
+                    //颜色
+                    color = colorResource(id = R.color.strokeColor),
+                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(36.dp, 8.dp, 36.dp, 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+
+                    Row(
+                        modifier = Modifier
+                            .width(0.dp)
+                            .weight(1f),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Image(
+                            modifier = Modifier
+                                .background(
+                                    colorResource(id = R.color.scrim),
+                                    RoundedCornerShape(40.dp)
+                                )
+                                .padding(2.dp),
+                            painter = painterResource(id = R.drawable.ic_outline_volume_up_24),
+                            contentDescription = "",
+                        )
+
+                        Text(
+                            text = "正在播放的设备",
+                            style = MaterialTheme.typography.body2,
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(start = 16.dp, end = 16.dp)
+                        )
+                    }
+
+                    IconButton(
+                        onClick = { /*TODO*/ }){
+                        Icon(painterResource(R.drawable.ic_round_playlist_play), contentDescription = "喜欢")
+                    }
+
+                }
+            } // 播放设备及列表
         }
     }
 
