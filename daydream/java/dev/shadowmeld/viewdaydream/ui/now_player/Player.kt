@@ -10,13 +10,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.Favorite
-import androidx.compose.material.icons.rounded.FavoriteBorder
-import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.icons.rounded.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,10 +19,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
@@ -172,6 +170,8 @@ private fun NowPlayerScreen(
         mutableStateOf<LocalMusicInfo?>(null)
     }
 
+    var sliderPosition by remember { mutableStateOf(0f) }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -225,10 +225,11 @@ private fun NowPlayerScreen(
             ConstraintLayout(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(IntrinsicSize.Min)
                     .padding(36.dp, 8.dp, 36.dp, 8.dp)
             ) {
 
-                val (favorite, musicInfo, musicDuration) = createRefs()
+                val (favorite, musicInfo) = createRefs()
 
                 Column(
                     modifier = Modifier
@@ -258,6 +259,85 @@ private fun NowPlayerScreen(
                 }
 
             } // 音乐信息
+
+            SliderWithLabel(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(36.dp, 8.dp, 36.dp, 8.dp),
+                value = sliderPosition,
+                onValueChange = { sliderPosition = it },
+                onValueChangeFinished = {
+
+                },
+                steps = 200,
+                colors = SliderDefaults.colors(
+                    thumbColor = MaterialTheme.colors.secondary,
+                    activeTrackColor = MaterialTheme.colors.secondary,
+                    activeTickColor = Color.Transparent,
+                    inactiveTickColor = Color.Transparent,
+                ),
+                finiteEnd = true,
+                valueRange = 0f..100f
+            ) // 进度条
+
+            ConstraintLayout(
+                modifier = Modifier
+                    .height(46.dp)
+                    .fillMaxWidth()
+            ) {
+
+                val (play, next, previous, shuffle, repeat) = createRefs()
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(repeat) {
+                            start.linkTo(parent.start)
+                            end.linkTo(previous.start)
+                        }) {
+                    Icon(painterResource(R.drawable.ic_round_repeat), contentDescription = "喜欢")
+                }
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(previous) {
+                            start.linkTo(repeat.end)
+                            end.linkTo(play.start)
+                        }) {
+                    Icon(painterResource(R.drawable.ic_outline_skip_previous), contentDescription = "喜欢")
+                }
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(play) {
+                            start.linkTo(parent.start)
+                            end.linkTo(parent.end)
+                        }) {
+                    Icon(painterResource(R.drawable.ic_round_play_arrow), contentDescription = "喜欢")
+                }
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(next) {
+                            start.linkTo(play.end)
+                            end.linkTo(shuffle.start)
+                        }) {
+                    Icon(painterResource(R.drawable.ic_outline_skip_next), contentDescription = "喜欢")
+                }
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .constrainAs(shuffle) {
+                            start.linkTo(next.end)
+                            end.linkTo(parent.end)
+                        }) {
+                    Icon(painterResource(R.drawable.ic_round_shuffle), contentDescription = "喜欢")
+                }
+            } // 播放控制
         }
     }
 
@@ -268,3 +348,4 @@ private fun NowPlayerScreen(
 private fun PreviewGreeting() {
     NowPlayerScreen()
 }
+
